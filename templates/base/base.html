@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>{% block title %}Title {% endblock %}</title>
 </head>
 <body>
-$END$
+    {% block content %}
+    <p>Este se reemplaza</p>
+    {% endblock %}
+
 </body>
 </html>
