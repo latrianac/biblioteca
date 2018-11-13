@@ -30,6 +30,7 @@
             <td>{{ libro.descripcion }}</td>
             <td>
                 <a class = "btn btn-primary" href="{% url 'libro:libro_editar' libro.id %}">Editar</a>
+                <a class = "btn btn-danger" href="{% url 'libro:libro_eliminar' libro.id %}">Eliminar</a>
             </td>
         </tr>
         {% endfor %}
