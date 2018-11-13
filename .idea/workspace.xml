@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="978dc866-c57b-4d89-a26d-43476738091a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/libro/libro_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/libro/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/libro/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/libro/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/libro/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +26,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/libro/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+            <state relative-caret-position="106">
+              <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -117,8 +115,8 @@
         <option value="$PROJECT_DIR$/biblioteca/urls.py" />
         <option value="$PROJECT_DIR$/templates/base/base.html" />
         <option value="$PROJECT_DIR$/apps/libro/urls.py" />
-        <option value="$PROJECT_DIR$/apps/libro/views.py" />
         <option value="$PROJECT_DIR$/templates/libro/libro_list.html" />
+        <option value="$PROJECT_DIR$/apps/libro/views.py" />
       </list>
     </option>
   </component>
@@ -442,8 +440,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/libro/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+        <state relative-caret-position="106">
+          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>

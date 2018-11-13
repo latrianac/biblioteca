@@ -19,7 +19,7 @@ def libro_view(request):
 
 
 def libro_list(request):
-    libro = Libro.objects.all()
+    libro = Libro.objects.all().order_by('id')
     contexto = {'libros':libro}
     return render(request, 'libro/libro_list.html', contexto)
 
