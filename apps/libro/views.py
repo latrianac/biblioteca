@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from apps.libro.forms import LibroForm
-from django.views.generic import ListView
 from apps.libro.models import Libro
 
 def index(request):
@@ -14,7 +13,6 @@ def libro_view(request):
         return redirect('index')
     else:
         form = LibroForm()
-
     return render(request, 'libro/libro_form.html', {'form': form})
 
 
@@ -33,6 +31,8 @@ def libro_edit(request, id_libro):
             form.save()
         return redirect('libro_listar')
     return render(request, 'libro/libro_form.html', {'form': form})
+
+
 
 
 

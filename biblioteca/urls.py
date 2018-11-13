@@ -17,11 +17,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-
+from apps.libro.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apps.libro.urls'), name='libro'),
+    path('libro/', include('apps.libro.urls'), name='libro'),
+    path('', index)
 ]
 
 if settings.DEBUG:

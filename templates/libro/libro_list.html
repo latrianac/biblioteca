@@ -13,6 +13,7 @@
             <td>Fecha de Publicación</td>
             <td>Editor</td>
             <td>Descripcion</td>
+            <td>Acciones</td>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,9 @@
             <td>{{ libro.fecha_publicacion }}</td>
             <td>{{ libro.editor }}</td>
             <td>{{ libro.descripcion }}</td>
+            <td>
+                <a class = "btn btn-primary" href="{% url 'libro:libro_editar' libro.id %}">Editar</a>
+            </td>
         </tr>
         {% endfor %}
         {% else %}
