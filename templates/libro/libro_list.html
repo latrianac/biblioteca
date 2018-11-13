@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Titulo</td>
+            <td>Subtitulo</td>
+            <td>Autor</td>
+            <td>Categoria</td>
+            <td>Fecha de Publicación</td>
+            <td>Editor</td>
+            <td>Descripcion</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if libros %}
+        {% for libro in libros %}
+        <tr>
+            <td>{{ libro.id }}</td>
+            <td>{{ libro.titulo }}</td>
+            <td>{{ libro.subtitulo }}</td>
+            <td>{{ libro.autor }}</td>
+            <td>{{ libro.categoria }}</td>
+            <td>{{ libro.fecha_publicacion }}</td>
+            <td>{{ libro.editor }}</td>
+            <td>{{ libro.descripcion }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h2>No hay registros de libros</h2>
+        {% endif %}
+    </tbody>
+
+</table>
+
+
+{% endblock %}
+
