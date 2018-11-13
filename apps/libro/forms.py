@@ -30,14 +30,14 @@ class LibroForm(forms.ModelForm):
         }
 
         widgets = {
-            'titulo': forms.TextInput(attrs={'class': 'from-control'}),
-            'subtitulo': forms.TextInput(attrs={'class': 'from-control'}),
-            'autor': forms.TextInput(attrs={'class': 'from-control'}),
-            'categoria':forms.TextInput(attrs={'class': 'from-control'}),
-            'fecha_publicacion':forms.TextInput(attrs={'class': 'from-control'}),
-            'editor':forms.TextInput(attrs={'class': 'from-control'}),
-            'descripcion':forms.TextInput(attrs={'class': 'from-control'}),
-            'imagen':forms.TextInput(attrs={'class': 'from-control'}),
+            'titulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'subtitulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'autor': forms.TextInput(attrs={'class': 'form-control'}),
+            'categoria':forms.TextInput(attrs={'class': 'form-control'}),
+            'fecha_publicacion':forms.DateInput(attrs={'class': 'form-control'}),
+            'editor':forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion':forms.TextInput(attrs={'class': 'form-control'}),
+            'imagen':forms.FileInput(attrs={'class': 'form-control'}),
 
 
         }
