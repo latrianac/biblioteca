@@ -17,8 +17,8 @@
         </tr>
     </thead>
     <tbody>
-        {% if libros %}
-        {% for libro in libros %}
+        {% if object_list %}
+        {% for libro in object_list %}
         <tr>
             <td>{{ libro.id }}</td>
             <td>{{ libro.titulo }}</td>

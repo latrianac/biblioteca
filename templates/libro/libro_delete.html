@@ -4,8 +4,8 @@
 
 <form method="post">
     {% csrf_token %}
-    <h3> ¿Desea eliminar el registro de {{ libro.titulo }}</h3>
-    <button class= "btm btn-danger" type="submit"> Si, eliminar </button>
-    <a class="btn btn-default" href="{% url 'libro:libro_listar' %}"> Cancelar </a>
+    <h3> ¿Desea eliminar el registro de {{ object.titulo }}? </h3>
+    <button class= "btn btn-danger" type="submit">Si, eliminar</button>
+    <button class= "btn btn-default" href="{% url 'libro:libro_listar' %}">Cancelar</button>
 </form>
 {% endblock %}
