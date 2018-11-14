@@ -1,0 +1,9 @@
+<form metho='GET' action="{% url 'libro:libro_buscar' %}" class="form my-2 my-lg-0">
+    <div class="input-group">
+    <input class="form-control" name='q' type="search" placeholder="Buscar"
+           aria-label="Buscar" value="{{ request.GET.q }}">
+        <span class="input-group-btn">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </span>
+    </div>
+</form>

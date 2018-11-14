@@ -1,8 +1,10 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from apps.libro.forms import LibroForm
 from apps.libro.models import Libro
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+
 
 def index(request):
     return render(request, 'libro/index.html')
@@ -63,4 +65,28 @@ class LibroDelete(DeleteView):
     model = Libro
     template_name = 'libro/libro_delete.html'
     success_url = reverse_lazy('libro:libro_listar')
+
+class LibroSearch(ListView):
+    template_name = 'libro/libro_search.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(LibroSearch, self).get_context_data(*args, **kwargs)
+        query = self.request.GET.get('q')
+        context['query'] = query
+        return context
+
+
+    def get_queryset(self, *args, **kwargs):
+        request = self.request
+        print(request.GET)
+        query = request.GET.get('q')
+        print(query)
+        if query is not None:
+            lookups = (Q(titulo__icontains=query) | Q(subtitulo__icontains=query) |
+                       Q(autor__icontains=query) | Q(categoria__icontains=query) |
+                       Q(fecha_publicacion__icontains=query) | Q(editor__icontains=query) |
+                       Q(descripcion__icontains=query) | Q(id__icontains=query))
+            return Libro.objects.filter(lookups).distinct()
+        return Libro.objects.none()
+    pass
 

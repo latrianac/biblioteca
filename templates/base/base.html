@@ -28,10 +28,7 @@
         <a class="nav-link" href="{% url 'libro:libro_listar' %}">Listado de Libros<span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" name='q' type="search" placeholder="Buscar" aria-label="Buscar">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
+      {% include 'base/search_form.html' %}
   </div>
 </nav>
 

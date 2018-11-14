@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="row container mb-3 mt-3">
+    {% if query %}
+    <div class="col-12 ">
+        <h3>Resultados para <b> {{ query }} </b></h3>
+        <hr/>
+    </div>
+    {% else %}
+    <div class="col-12 col-md-6 mx-auto py-4">
+        {% include 'base/search_form.html' %}
+    </div>
+    {% endif %}
+</div>
+{% if query %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Titulo</td>
+            <td>Subtitulo</td>
+            <td>Autor</td>
+            <td>Categoria</td>
+            <td>Fecha de Publicación</td>
+            <td>Editor</td>
+            <td>Descripcion</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list %}
+        {% for libro in object_list %}
+        <tr>
+            <td>{{ libro.id }}</td>
+            <td>{{ libro.titulo }}</td>
+            <td>{{ libro.subtitulo }}</td>
+            <td>{{ libro.autor }}</td>
+            <td>{{ libro.categoria }}</td>
+            <td>{{ libro.fecha_publicacion }}</td>
+            <td>{{ libro.editor }}</td>
+            <td>{{ libro.descripcion }}</td>
+            <td>
+                <a class = "btn btn-primary" href="{% url 'libro:libro_editar' libro.id %}">Editar</a>
+                <a class = "btn btn-danger" href="{% url 'libro:libro_eliminar' libro.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h2>No hay registros de libros</h2>
+        {% endif %}
+    </tbody>
+
+</table>
+{% endif %}
+
+{% endblock %}

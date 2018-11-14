@@ -20,9 +20,9 @@ from django.urls import path, include
 from apps.libro.views import index
 
 urlpatterns = [
+    path('', index),
     path('admin/', admin.site.urls),
     path('libro/', include('apps.libro.urls'), name='libro'),
-    path('', index)
 ]
 
 if settings.DEBUG:
