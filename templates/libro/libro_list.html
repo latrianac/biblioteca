@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<table class="table table-bordered">
+<table class="table table-bordered table-condensed table-hover table-responsive">
     <thead>
         <tr>
             <td>#</td>
@@ -29,8 +29,10 @@
             <td>{{ libro.editor }}</td>
             <td>{{ libro.descripcion }}</td>
             <td>
+                <div class="container" >
                 <a class = "btn btn-primary" href="{% url 'libro:libro_editar' libro.id %}">Editar</a>
                 <a class = "btn btn-danger" href="{% url 'libro:libro_eliminar' libro.id %}">Eliminar</a>
+                </div>
             </td>
         </tr>
         {% endfor %}

@@ -1,5 +1,5 @@
 from django.urls import path, re_path
-from apps.libro.views import index, libro_view, libro_list, libro_edit, libro_delete, LibroList, LibroCreate, LibroUpdate, LibroDelete, LibroSearch
+from apps.libro.views import index, LibroList, LibroCreate, LibroUpdate, LibroDelete, LibroSearch
 
 app_name = 'libro'
 urlpatterns = [

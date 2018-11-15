@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="col-12 col-md-6 mx-auto py-4">
+    <h4> Busqueda en GOOGLE BOOKS </h4>
+    <br>
+    <form method='POST' action="{% url 'api:search' %}" class="form my-2 my-lg-0">
+        {% csrf_token %}
+    <div class="input-group">
+    <input class="form-control" name='q' type="search" placeholder="Buscar libros google"
+           aria-label="Buscar" value="{{ from.titulo }}">
+        <span class="input-group-btn">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </span>
+    </div>
+</form>
+</div>
+
+
+<div class="container mb-4">
+    <h4>Resultados de la busqueda </h4>
+    {% for libro_info in libro_contexts %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <figure>
+                    <img class="img-responsive" src="{{ libro_info.imageLinks.smallThumbnail }}">
+                </figure>
+                <div class="caption">
+                    <div>
+                        </span>
+                            <span><b>{{libro_info.title}}</b></span>
+                            <br>
+                            <span>{{libro_info.subtitle}}</span>
+                            <br>
+                            <span>{{libro_info.authors.0}}</span>
+                            <br>
+                            <span>{{libro_info.publisher}}</span>
+                            <br>
+                            <span>{{libro_info.publishedDate}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
