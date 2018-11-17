@@ -16,6 +16,7 @@ class LibroList(ListView):
     model = Libro
     template_name = 'libro/libro_list.html'
 
+
 class LibroCreate(CreateView):
     model = Libro
     form_class = LibroForm
@@ -34,7 +35,7 @@ class LibroDelete(DeleteView):
     success_url = reverse_lazy('libro:libro_listar')
 
 
-# Buscador de libros en base de datos ***************
+# Buscador de libros en base de datos *********************
 
 class LibroSearch(ListView):
     template_name = 'libro/libro_search.html'
@@ -45,12 +46,9 @@ class LibroSearch(ListView):
         context['query'] = query
         return context
 
-
     def get_queryset(self, *args, **kwargs):
         request = self.request
-        print(request.GET)
         query = request.GET.get('q')
-        print(query)
         if query is not None:
             lookups = (Q(titulo__icontains=query) | Q(subtitulo__icontains=query) |
                        Q(autor__icontains=query) | Q(categoria__icontains=query) |
@@ -58,5 +56,7 @@ class LibroSearch(ListView):
                        Q(descripcion__icontains=query) | Q(id__icontains=query))
             return Libro.objects.filter(lookups).distinct()
         return Libro.objects.none()
-    pass
+
+
+
 

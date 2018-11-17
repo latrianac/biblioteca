@@ -2,44 +2,34 @@
 
 {% block content %}
 
-<div class="col-12 col-md-6 mx-auto py-4">
-    <h4> Busqueda en GOOGLE BOOKS </h4>
+<div class="container">
     <br>
-    <form method='POST' action="{% url 'api:search' %}" class="form my-2 my-lg-0">
-        {% csrf_token %}
-    <div class="input-group">
-    <input class="form-control" name='q' type="search" placeholder="Buscar libros google"
-           aria-label="Buscar" value="{{ from.titulo }}">
-        <span class="input-group-btn">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </span>
-    </div>
-</form>
-</div>
-
-
-<div class="container mb-4">
-    <h4>Resultados de la busqueda </h4>
+    <h4>Resultados de la busqueda {{ libro_contexts.9.search_keyword }}</h4>
+    <br>
     {% for libro_info in libro_contexts %}
     <div class="row">
-        <div class="col-md-4">
+        <div class="col">
             <div class="thumbnail">
+                <br>
                 <figure>
-                    <img class="img-responsive" src="{{ libro_info.imageLinks.smallThumbnail }}">
+                    <img class="img-responsive" src="{{ libro_info.imageLinks.thumbnail }}">
                 </figure>
                 <div class="caption">
                     <div>
                         </span>
-                            <span><b>{{libro_info.title}}</b></span>
+                            <span><b>id:</b> {{libro_info.id}}</span>
                             <br>
-                            <span>{{libro_info.subtitle}}</span>
+                            <span><b>Titulo:</b> {{libro_info.title}}</span>
                             <br>
-                            <span>{{libro_info.authors.0}}</span>
+                            <span><b>Subtitulo:</b> {{libro_info.subtitle}}</span>
                             <br>
-                            <span>{{libro_info.publisher}}</span>
+                            <span><b>Autor:</b> {{libro_info.authors.0}}</span>
                             <br>
-                            <span>{{libro_info.publishedDate}}</span>
+                            <span><b>Editor:</b> {{libro_info.publisher}}</span>
+                            <br>
+                            <span><b>Fecha de publicación:</b> {{libro_info.publishedDate}}</span>
                         </p>
+
                     </div>
                 </div>
             </div>
@@ -48,6 +38,5 @@
     </div>
     {% endfor %}
 </div>
-
 
 {% endblock %}
