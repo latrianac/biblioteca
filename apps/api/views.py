@@ -6,7 +6,7 @@ from apps.api.models import LibroBusquedaGoogle, LibroGuardarGoogle
 from apps.libro.models import Libro
 from django.urls import reverse_lazy
 
-#Almacena los teminos de busqueda
+#Almacena los teminos de busqueda en la API de Google
 
 class BookSearchApi(CreateView):
     model = LibroBusquedaGoogle
@@ -14,8 +14,16 @@ class BookSearchApi(CreateView):
     template_name = 'api/libro_google_form.html'
     success_url = reverse_lazy('api:listado')
 
+#Almacena los ID solicitados por el usuario
 
-#Muestra los resultados de la busqueda
+class BookSaveApi(CreateView):
+    model = LibroGuardarGoogle
+    form_class = LibroIdApi
+    template_name = 'api/libro_save_form.html'
+    success_url = reverse_lazy('api:exito')
+
+
+# Muestra los resultados de la busqueda en la API de Google
 
 def show_results(request):
     url = 'https://www.googleapis.com/books/v1/volumes?q={}:keyes&key=AIzaSyAzUU11BZnc-IKjnzsrz7fp2oyPYv-Bng8'
@@ -27,12 +35,8 @@ def show_results(request):
     print(libro_contexts[0]['publishedDate'].split("-"))
     return render(request, 'api/libro_google_search.html', context)
 
-class BookSaveApi(CreateView):
-    model = LibroGuardarGoogle
-    form_class = LibroIdApi
-    template_name = 'api/libro_save_form.html'
-    success_url = reverse_lazy('api:exito')
 
+# Guarda la informacion del libro de Google a la Base de datos
 
 def save_book_database(request):
 
@@ -60,7 +64,7 @@ def save_book_database(request):
         i = i + 1
     return render(request, 'api/libro_saved.html', {})
 
-#Busca campos disponibles en la API
+# Busca campos disponibles en la API y valida la informacion de cada uno
 
 def search_request_api_valid_fields(libro, url, libro_contexts):
     campos_consulta = ['title', 'subtitle', 'authors', 'categories', 'publishedDate', 'publisher', 'description', 'imageLinks']

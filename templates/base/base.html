@@ -25,13 +25,16 @@
         <a class="nav-link" href="{% url 'libro:libro_crear' %}">Agregar Libro<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'libro:libro_listar' %}">Listado de Libros<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'libro:libro_listar' %}">Repositorio local<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'api:search' %}">Buscar en Google <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'api:save' %}">Guardar por ID <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'api:listado' %}">Ultima Busqueda <span class="sr-only">(current)</span></a>
       </li>
     </ul>
       {% include 'base/search_form.html' %}
