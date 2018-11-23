@@ -35,16 +35,20 @@ class LibroDelete(DeleteView):
     success_url = reverse_lazy('libro:libro_listar')
 
 
-# Buscador de libros en base de datos *********************
+# Buscador de libros en base de datos ************************************
 
 class LibroSearch(ListView):
     template_name = 'libro/libro_search.html'
+
+# Devuelve los resultados de la busqueda
 
     def get_context_data(self, *args, **kwargs):
         context = super(LibroSearch, self).get_context_data(*args, **kwargs)
         query = self.request.GET.get('q')
         context['query'] = query
         return context
+
+# Recibe los terminos de busqueda
 
     def get_queryset(self, *args, **kwargs):
         request = self.request

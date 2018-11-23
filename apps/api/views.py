@@ -6,7 +6,7 @@ from apps.api.models import LibroBusquedaGoogle, LibroGuardarGoogle
 from apps.libro.models import Libro
 from django.urls import reverse_lazy
 
-#Almacena los teminos de busqueda en la API de Google
+#Almacena los terminos de busqueda en la API de Google
 
 class BookSearchApi(CreateView):
     model = LibroBusquedaGoogle
@@ -26,7 +26,7 @@ class BookSaveApi(CreateView):
 # Muestra los resultados de la busqueda en la API de Google
 
 def show_results(request):
-    url = 'https://www.googleapis.com/books/v1/volumes?q={}:keyes&key=AIzaSyAzUU11BZnc-IKjnzsrz7fp2oyPYv-Bng8'
+    url = 'https://www.googleapis.com/books/v1/volumes?q={}'
     ultima_busqueda = LibroBusquedaGoogle.objects.latest('id')
     libro = str(ultima_busqueda)
     libro_contexts = []
@@ -40,7 +40,7 @@ def show_results(request):
 
 def save_book_database(request):
 
-    url = 'https://www.googleapis.com/books/v1/volumes?q={}:keyes&key=AIzaSyAzUU11BZnc-IKjnzsrz7fp2oyPYv-Bng8'
+    url = 'https://www.googleapis.com/books/v1/volumes?q={}'
     id_libro = str(LibroGuardarGoogle.objects.latest('id'))
     print(id_libro)
     ultima_busqueda = LibroBusquedaGoogle.objects.latest('id')
