@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('libro/', include('apps.libro.urls'), name='libro'),
     path('google/', include('apps.api.urls'), name='api'),
+    path('rest/', include('rest.urls'), name='rest'),
 ]
 
 if settings.DEBUG:
